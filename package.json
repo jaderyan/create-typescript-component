@@ -1,0 +1,21 @@
+{
+  "name": "create-typescript-component",
+  "version": "1.0.0",
+  "description": "CLI tool for creating typescript React components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "sass",
+    "scss"
+  ],
+  "author": "Jade Ryan",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.0.0"
+  },
+  "devDependencies": {}
+}
