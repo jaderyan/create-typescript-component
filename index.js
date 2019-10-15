@@ -7,6 +7,12 @@ const createTemplate = require("./templates");
 
 const QUESTIONS = [
   {
+    name: "component-directory",
+    type: "input",
+    default: "src/components",
+    message: "What directory should the component live in?"
+  },
+  {
     name: "component-name",
     type: "input",
     message: "What is the name of the component?",
@@ -25,7 +31,13 @@ const QUESTIONS = [
 inquirer.prompt(QUESTIONS).then(answers => {
   const componentName = answers["component-name"];
   const hasStyles = answers["project-styles"];
-  const folderPath = `${CURR_DIR}/src/components/${componentName}`;
+  const componentFolder = answers["component-directory"];
+  const componentDirectory = `${CURR_DIR}/${componentFolder}`;
+  const folderPath = `${componentDirectory}/${componentName}`;
+
+  if (!fs.existsSync(componentDirectory)) {
+    fs.mkdirSync(componentDirectory, { recursive: true });
+  }
 
   fs.mkdirSync(folderPath);
 
