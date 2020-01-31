@@ -15,8 +15,7 @@
   "author": "Jade Ryan",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^7.0.0",
-    "lodash": "^4.17.15"
+    "inquirer": "^7.0.0"
   },
   "bin": {
     "component": "src/index.js"

@@ -4,7 +4,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const CURR_DIR = process.cwd();
 const createTemplate = require("./templates");
-const capitalize = require("lodash/capitalize");
 
 const QUESTIONS = [
   {
@@ -30,13 +29,13 @@ const QUESTIONS = [
 ];
 
 inquirer.prompt(QUESTIONS).then(answers => {
-  const componentName = capitalize(answers["component-name"]);
+  const componentName = answers["component-name"];
   const hasStyles = answers["project-styles"];
   const componentFolder = answers["component-directory"];
   const componentDirectory = `${CURR_DIR}/${componentFolder}`;
   const folderPath = `${componentDirectory}/${componentName}`;
 
-  if (!fs.existsSync(componentDirectory)) {
+    if (!fs.existsSync(componentDirectory)) {
     fs.mkdirSync(componentDirectory, { recursive: true });
   }
 
