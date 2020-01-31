@@ -11,33 +11,33 @@ function createTemplate(file, componentName, hasStyles) {
 function createIndex(componentName) {
   return `import ${componentName} from './${componentName}'
 
-export default ${componentName}`;
+  export default ${componentName}`;
 }
 
 function createComponent(componentName, hasStyles) {
   if (hasStyles) {
     return `import React, { FunctionComponent } from "react";
-
-interface IProps {
-    text: string;
-}
-
-const ${componentName}: FunctionComponent<IProps> = ({ text }) => <p>{text}</p>;
-        
-export default ${componentName}`;
+  
+  import './${componentName}.scss'
+  
+  interface IProps {
+      text: string;
+  }
+      
+  const ${componentName}: FunctionComponent<IProps> = ({ text }) => <p>{text}</p>;
+      
+  export default ${componentName}`;
   }
 
   return `import React, { FunctionComponent } from "react";
 
-import './${componentName}.scss'
-
-interface IProps {
+  interface IProps {
     text: string;
-}
-    
-const ${componentName}: FunctionComponent<IProps> = ({ text }) => <p>{text}</p>;
-    
-export default ${componentName}`;
+  }
+
+  const ${componentName}: FunctionComponent<IProps> = ({ text }) => <p>{text}</p>;
+        
+  export default ${componentName}`;
 }
 
 module.exports = createTemplate;
